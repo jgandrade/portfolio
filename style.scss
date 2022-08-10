@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap");
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Oswald", sans-serif;
 }
 
 :root {
@@ -13,9 +16,11 @@
     --bg-secondary: rgb(53, 53, 53);
     --transition-setting: all cubic-bezier(0.87, -0.41, 0.19, 1.44);
     --transition-setting-2: all ease-in-out;
+    font-family: "Oswald", sans-serif;
 }
 
 .nav-container {
+    transition: 0.3s var(--transition-setting-2);
     width: 100vw;
     height: max-content;
     position: fixed;
@@ -56,11 +61,17 @@
 }
 
 .main-container {
+    transition: 0.3s var(--transition-setting-2);
+    display: flex;
+    flex-direction: column;
     margin-top: 7em;
 
-    section{
+    section {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100vh;
+        overflow: hidden;
     }
 }
 
@@ -103,95 +114,65 @@
         .burger-btn {
             display: none;
         }
+
+        & .logo-white {
+            display: none;
+        }
+
+        &:hover {
+            background-color: rgb(53, 53, 53);
+            width: 10vw;
+
+            & .logo-white {
+                display: block;
+            }
+
+            & .logo-white:hover {
+                transform: scale(1.05);
+            }
+
+            & .logo-black {
+                display: none;
+            }
+        }
+
+        &:hover + .main-container {
+            filter: blur(2px);
+            width: 90vw;
+        }
+
+        ul {
+            display: none;
+        }
     }
 
     .main-container {
-        flex: none;
-        height: 100vh;
         width: 90vw;
+        height: 100vh;
         margin-top: 0;
         overflow-y: scroll;
         background-color: var(--bg-primary);
 
+        .contents {
+            flex: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            & * {
+                transition: all 1s ease;
+            }
+
+            &:hover * {
+                transform: scale(1.03);
+            }
+        }
+        & h1,
+        p {
+            cursor: default;
+        }
     }
+    
 }
-
-// @media only screen and (min-width: 768px) {
-//     .flex-container {
-//         height: 100vh;
-//         overflow: hidden;
-//     }
-
-//     .nav-container {
-//         position: unset;
-//         width: 10vw;
-//         transition: all 0.3s ease;
-//         background-color: var(--bg-primary);
-
-//         & .logo-white {
-//             display: none;
-//         }
-
-//         &:hover {
-//             background-color: rgb(53, 53, 53);
-//             width: 20vw;
-
-//             & .logo-white {
-//                 display: block;
-//             }
-
-//             & .logo-white:hover {
-//                 transform: scale(1.05);
-//             }
-
-//             & .logo-black {
-//                 display: none;
-//             }
-//         }
-
-//         &:hover + .main-container {
-//             filter: blur(2px);
-//             width: 80vw;
-//             overflow: hidden;
-//         }
-
-//         ul {
-//             display: none;
-//         }
-//     }
-
-//     .main-container {
-//         width: 90vw;
-//         height: 100vh;
-//         overflow-x: hidden;
-//         overflow-y: scroll;
-//         scroll-behavior: smooth;
-
-//         & h1,
-//         p {
-//             cursor: default;
-//         }
-
-//         section {
-//             width: 100%;
-//             height: 100vh;
-//             overflow: hidden;
-
-//             & * {
-//                 transition: all 1s ease;
-//             }
-
-//             &:hover * {
-//                 transform: scale(1.03);
-//             }
-//         }
-
-//         .home-container {
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             background-color: rgb(255, 255, 255);
-//             clip-path: circle(84.7% at 50% 13%);
-//         }
-//     }
-// }

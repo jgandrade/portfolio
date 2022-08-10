@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap");
 *,
 *::before,
 *::after {
@@ -5,6 +6,7 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Oswald", sans-serif;
 }
 
 :root {
@@ -14,9 +16,12 @@
   --bg-secondary: rgb(53, 53, 53);
   --transition-setting: all cubic-bezier(0.87, -0.41, 0.19, 1.44);
   --transition-setting-2: all ease-in-out;
+  font-family: "Oswald", sans-serif;
 }
 
 .nav-container {
+  -webkit-transition: 0.3s var(--transition-setting-2);
+  transition: 0.3s var(--transition-setting-2);
   width: 100vw;
   height: -webkit-max-content;
   height: -moz-max-content;
@@ -63,12 +68,29 @@
 }
 
 .main-container {
+  -webkit-transition: 0.3s var(--transition-setting-2);
+  transition: 0.3s var(--transition-setting-2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: 7em;
 }
 
 .main-container section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 576px) {
@@ -119,15 +141,68 @@
   #nav__bar .burger-btn {
     display: none;
   }
-  .main-container {
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
-    height: 100vh;
+  #nav__bar .logo-white {
+    display: none;
+  }
+  #nav__bar:hover {
+    background-color: #353535;
+    width: 10vw;
+  }
+  #nav__bar:hover .logo-white {
+    display: block;
+  }
+  #nav__bar:hover .logo-white:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  #nav__bar:hover .logo-black {
+    display: none;
+  }
+  #nav__bar:hover + .main-container {
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
     width: 90vw;
+  }
+  #nav__bar ul {
+    display: none;
+  }
+  .main-container {
+    width: 90vw;
+    height: 100vh;
     margin-top: 0;
     overflow-y: scroll;
     background-color: var(--bg-primary);
+  }
+  .main-container .contents {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+  }
+  .main-container .contents * {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+  }
+  .main-container .contents:hover * {
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  .main-container h1,
+  .main-container p {
+    cursor: default;
   }
 }
 /*# sourceMappingURL=style.css.map */
