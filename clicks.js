@@ -25,3 +25,5 @@ showBtn.addEventListener('click', () => {
     socialLink.classList.add('socials-links-open');
     navBar.classList.add('show-nav');
 });
+
+
