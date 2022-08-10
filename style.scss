@@ -171,6 +171,9 @@ p {
     font-size: 2em;
     color: white;
 }
+
+#intro {
+}
 @media only screen and (min-width: 576px) {
     .nav-container .burger-btn {
         top: 1vw;
@@ -490,8 +493,4 @@ p {
         display: flex;
         flex-direction: column;
     }
-}
-
-@media only screen and (min-width: 992px){
-    
 }
