@@ -18,6 +18,10 @@
   --transition-setting-2: all ease-in-out;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url(./resources/images/bg.svg);
   background-position: center;
@@ -72,6 +76,10 @@ p {
   text-decoration: none;
 }
 
+.nav-container a:hover {
+  color: lightcoral;
+}
+
 .nav-container .burger-btn {
   color: var(--text-primary);
   font-size: 2em;
@@ -86,6 +94,8 @@ p {
 }
 
 .nav-container .nav-menu-block {
+  -webkit-animation: slide-side 0.6s forwards ease;
+          animation: slide-side 0.6s forwards ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,10 +107,11 @@ p {
           align-items: center;
   position: absolute;
   top: 0;
-  left: 0;
+  right: -100vw;
   height: 100vh;
   width: 100vw;
   background-color: var(--bg-secondary);
+  z-index: 1000;
 }
 
 .nav-container .nav-menu-block .socials-links {
@@ -108,7 +119,21 @@ p {
   list-style-type: none;
 }
 
+@-webkit-keyframes slide-side {
+  to {
+    right: -4em;
+  }
+}
+
+@keyframes slide-side {
+  to {
+    right: -4em;
+  }
+}
+
 .nav-menu {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   font-size: 2em;
 }
 
@@ -227,7 +252,7 @@ p {
 .close {
   position: absolute;
   top: 0;
-  right: 1em;
+  left: 1em;
   font-size: 2em;
   color: white;
 }
@@ -436,8 +461,8 @@ p {
     width: 90vw;
     height: 100vh;
     margin-top: 0;
-    overflow-y: scroll;
     background-color: var(--bg-primary);
+    overflow-y: scroll;
   }
   .main-container .contents {
     -webkit-box-flex: 0;
@@ -456,7 +481,6 @@ p {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    overflow: hidden;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -541,6 +565,9 @@ p {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   #projects .proj-img {
     -webkit-transition: 0.3s var(--transition-setting);
@@ -557,9 +584,6 @@ p {
     border-radius: 0.5em;
   }
   #projects .proj {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

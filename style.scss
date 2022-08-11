@@ -18,6 +18,9 @@
     --transition-setting-2: all ease-in-out;
 }
 
+html{
+    scroll-behavior: smooth;
+}
 body {
     background-image: url(./resources/images/bg.svg);
     background-position: center;
@@ -61,6 +64,9 @@ p {
         color: white;
         text-decoration: none;
     }
+    a:hover{
+        color: lightcoral;
+    }
     .burger-btn {
         color: var(--text-primary);
         font-size: 2em;
@@ -75,24 +81,33 @@ p {
     }
 
     .nav-menu-block {
+        animation: slide-side 0.6s forwards ease;
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
         top: 0;
-        left: 0;
+        right: -100vw;
         height: 100vh;
         width: 100vw;
         background-color: var(--bg-secondary);
+        z-index: 1000;
 
         & .socials-links {
             display: block;
             list-style-type: none;
         }
+
+        @keyframes slide-side {
+            to {
+                right: -4em;
+            }
+        }
     }
 }
 
 .nav-menu {
+    transition: all 0.3s ease;
     font-size: 2em;
     ul {
         padding-top: 5em;
@@ -167,13 +182,12 @@ p {
 .close {
     position: absolute;
     top: 0;
-    right: 1em;
+    left: 1em;
     font-size: 2em;
     color: white;
 }
 
-#intro {
-}
+
 @media only screen and (min-width: 576px) {
     .nav-container .burger-btn {
         top: 1vw;
@@ -370,16 +384,14 @@ p {
         width: 90vw;
         height: 100vh;
         margin-top: 0;
-        overflow-y: scroll;
         background-color: var(--bg-primary);
-
+        overflow-y: scroll;
         .contents {
             flex: none;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
             height: fit-content;
             padding: 5em;
 
@@ -402,6 +414,7 @@ p {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         h1 {
             margin-top: 5em;
         }
@@ -443,6 +456,7 @@ p {
     #projects {
         display: flex;
         flex-direction: column;
+        height: fit-content;
 
         .proj-img {
             transition: 0.3s var(--transition-setting);
@@ -457,7 +471,7 @@ p {
         }
 
         .proj {
-            height: fit-content;
+            
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -492,5 +506,6 @@ p {
     #contact {
         display: flex;
         flex-direction: column;
+        
     }
 }
